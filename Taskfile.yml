@@ -1,0 +1,26 @@
+version: "3"
+
+vars:
+  PORT: '{{default "8000" .PORT}}'
+  HOST: '{{default "0.0.0.0" .HOST}}'
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds:
+      - task --list
+
+  serve:
+    desc: Serve the static site locally for NetBird access
+    cmds:
+      - python3 serve.py --host {{.HOST}} --port {{.PORT}}
+
+  deploy-local:
+    desc: Build/copy the ROM into roms/zeleste.gba using deploy-local.sh
+    cmds:
+      - ./deploy-local.sh
+
+  netbird-ip:
+    desc: Show NetBird status so you can find this machine's NetBird IP
+    cmds:
+      - netbird status
