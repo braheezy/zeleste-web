@@ -1,315 +1,346 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zeleste</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #101219;
-      --panel: #171b24;
-      --text: #f1f3f7;
-      --muted: #9aa3b5;
-      --accent: #6bd4ff;
-    }
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Zeleste</title>
+        <style>
+            :root {
+                color-scheme: dark;
+                --bg: #101219;
+                --panel: #171b24;
+                --text: #f1f3f7;
+                --muted: #9aa3b5;
+                --accent: #6bd4ff;
+            }
 
-    * {
-      box-sizing: border-box;
-    }
+            * {
+                box-sizing: border-box;
+            }
 
-    html,
-    body {
-      margin: 0;
-      min-height: 100%;
-      color: var(--text);
-      font: 15px/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+            html,
+            body {
+                margin: 0;
+                min-height: 100%;
+                color: var(--text);
+                font:
+                    15px/1.45 system-ui,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
+            }
 
-    html {
-      background: var(--bg);
-    }
+            html {
+                background: var(--bg);
+            }
 
-    body {
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      min-height: 100vh;
-      background:
-        linear-gradient(rgba(8, 10, 16, 0.72), rgba(8, 10, 16, 0.82)),
-        url("./complete-8.png") center / cover fixed;
-    }
+            body {
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+                min-height: 100vh;
+                background:
+                    linear-gradient(
+                        rgba(8, 10, 16, 0.72),
+                        rgba(8, 10, 16, 0.82)
+                    ),
+                    url("./complete-8.png") center / cover fixed;
+            }
 
-    header,
-    footer {
-      padding: 14px 18px;
-    }
+            header,
+            footer {
+                padding: 14px 18px;
+            }
 
-    header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 16px;
-      border-bottom: 1px solid #252a36;
-      background: rgba(18, 22, 32, 0.92);
-    }
+            header {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                gap: 16px;
+                border-bottom: 1px solid #252a36;
+                background: rgba(18, 22, 32, 0.92);
+            }
 
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+            .header-actions {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
 
-    h1 {
-      margin: 0;
-      font-size: 18px;
-      font-weight: 650;
-      letter-spacing: 0;
-    }
+            h1 {
+                margin: 0;
+                font-size: 18px;
+                font-weight: 650;
+                letter-spacing: 0;
+            }
 
-    .meta {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-      text-align: right;
-    }
+            .meta {
+                margin: 0;
+                color: var(--muted);
+                font-size: 13px;
+                text-align: right;
+            }
 
-    .github-link {
-      display: inline-grid;
-      place-items: center;
-      width: 34px;
-      height: 34px;
-      color: var(--text);
-      border: 1px solid #2b3140;
-      background: rgba(23, 27, 36, 0.9);
-      text-decoration: none;
-    }
+            .github-link {
+                display: inline-grid;
+                place-items: center;
+                width: 34px;
+                height: 34px;
+                color: var(--text);
+                border: 1px solid #2b3140;
+                background: rgba(23, 27, 36, 0.9);
+                text-decoration: none;
+            }
 
-    .github-link:hover,
-    .github-link:focus-visible {
-      color: var(--accent);
-      border-color: #3a8fb4;
-      outline: none;
-    }
+            .github-link:hover,
+            .github-link:focus-visible {
+                color: var(--accent);
+                border-color: #3a8fb4;
+                outline: none;
+            }
 
-    .github-link svg {
-      width: 19px;
-      height: 19px;
-      fill: currentColor;
-    }
+            .github-link svg {
+                width: 19px;
+                height: 19px;
+                fill: currentColor;
+            }
 
-    main {
-      display: grid;
-      place-items: center;
-      padding: 18px;
-      min-height: 0;
-    }
+            main {
+                display: grid;
+                place-items: center;
+                padding: 18px;
+                min-height: 0;
+            }
 
-    .play-area {
-      display: grid;
-      gap: 14px;
-      width: min(100%, 960px);
-    }
+            .play-area {
+                display: grid;
+                gap: 14px;
+                width: min(100%, 960px);
+            }
 
-    #game {
-      width: 100%;
-      height: min(72vh, 720px);
-      min-height: 360px;
-      background: var(--panel);
-      border: 1px solid #252a36;
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
-    }
+            #game {
+                width: 100%;
+                height: min(72vh, 720px);
+                min-height: 360px;
+                background: var(--panel);
+                border: 1px solid #252a36;
+                box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+            }
 
-    .controls {
-      padding: 16px;
-      background: rgba(18, 22, 32, 0.92);
-      border: 1px solid #252a36;
-    }
+            .controls {
+                padding: 16px;
+                background: rgba(18, 22, 32, 0.92);
+                border: 1px solid #252a36;
+            }
 
-    .controls h2 {
-      margin: 0 0 12px;
-      font-size: 15px;
-      font-weight: 650;
-      letter-spacing: 0;
-    }
+            .controls h2 {
+                margin: 0 0 12px;
+                font-size: 15px;
+                font-weight: 650;
+                letter-spacing: 0;
+            }
 
-    .control-list {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 8px;
-      margin: 0;
-    }
+            .control-list {
+                display: grid;
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 8px;
+                margin: 0;
+            }
 
-    .control {
-      display: grid;
-      gap: 4px;
-      min-width: 0;
-      padding: 10px;
-      background: rgba(23, 27, 36, 0.9);
-      border: 1px solid #2b3140;
-    }
+            .control {
+                display: grid;
+                gap: 4px;
+                min-width: 0;
+                padding: 10px;
+                background: rgba(23, 27, 36, 0.9);
+                border: 1px solid #2b3140;
+            }
 
-    .control dt {
-      color: var(--muted);
-      font-size: 12px;
-    }
+            .control dt {
+                color: var(--muted);
+                font-size: 12px;
+            }
 
-    .control dd {
-      margin: 0;
-      font-size: 14px;
-      font-weight: 650;
-      overflow-wrap: anywhere;
-    }
+            .control dd {
+                margin: 0;
+                font-size: 14px;
+                font-weight: 650;
+                overflow-wrap: anywhere;
+            }
 
-    .controls-note {
-      margin: 12px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
+            .controls-note {
+                margin: 12px 0 0;
+                color: var(--muted);
+                font-size: 13px;
+            }
 
-    footer {
-      display: grid;
-      gap: 8px;
-      color: var(--muted);
-      font-size: 13px;
-      border-top: 1px solid #252a36;
-      background: rgba(18, 22, 32, 0.92);
-    }
+            footer {
+                display: grid;
+                gap: 8px;
+                color: var(--muted);
+                font-size: 13px;
+                border-top: 1px solid #252a36;
+                background: rgba(18, 22, 32, 0.92);
+            }
 
-    footer p {
-      margin: 0;
-    }
+            footer p {
+                margin: 0;
+            }
 
-    .takedown-note {
-      color: var(--text);
-    }
+            .takedown-note {
+                color: var(--text);
+            }
 
-    a {
-      color: var(--accent);
-    }
+            a {
+                color: var(--accent);
+            }
 
-    @media (max-width: 720px) {
-      body {
-        grid-template-rows: auto 1fr;
-        background:
-          linear-gradient(rgba(8, 10, 16, 0.78), rgba(8, 10, 16, 0.88)),
-          url("./complete-8.png") center / cover;
-      }
+            @media (max-width: 720px) {
+                body {
+                    grid-template-rows: auto 1fr;
+                    background:
+                        linear-gradient(
+                            rgba(8, 10, 16, 0.78),
+                            rgba(8, 10, 16, 0.88)
+                        ),
+                        url("./complete-8.png") center / cover;
+                }
 
-      header {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 4px;
-      }
+                header {
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 4px;
+                }
 
-      .header-actions {
-        justify-content: space-between;
-        width: 100%;
-      }
+                .header-actions {
+                    justify-content: space-between;
+                    width: 100%;
+                }
 
-      .meta {
-        text-align: left;
-      }
+                .meta {
+                    text-align: left;
+                }
 
-      main {
-        padding: 0;
-        align-content: start;
-        overflow: auto;
-      }
+                main {
+                    padding: 0;
+                    align-content: start;
+                    overflow: auto;
+                }
 
-      .play-area {
-        width: 100%;
-        gap: 0;
-      }
+                .play-area {
+                    width: 100%;
+                    gap: 0;
+                }
 
-      #game {
-        width: 100vw;
-        height: min(64vh, calc(100vh - 210px));
-        min-height: 320px;
-        border: 0;
-      }
+                #game {
+                    width: 100vw;
+                    height: min(64vh, calc(100vh - 210px));
+                    min-height: 320px;
+                    border: 0;
+                }
 
-      .controls {
-        border-right: 0;
-        border-left: 0;
-      }
+                .controls {
+                    border-right: 0;
+                    border-left: 0;
+                }
 
-      .control-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+                .control-list {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
 
-      footer {
-        padding: 14px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Zeleste</h1>
-    <div class="header-actions">
-      <p class="meta">Game Boy Advance prototype</p>
-      <a class="github-link" href="https://github.com/braheezy/zeleste-web" target="_blank" rel="noreferrer" aria-label="Open the GitHub repository">
-        <svg viewBox="0 0 16 16" aria-hidden="true">
-          <path d="M8 0C3.58 0 0 3.66 0 8.18c0 3.61 2.29 6.67 5.47 7.75.4.08.55-.18.55-.39 0-.19-.01-.84-.01-1.52-2.01.38-2.53-.5-2.69-.96-.09-.24-.48-.96-.82-1.16-.28-.15-.68-.52-.01-.53.63-.01 1.08.59 1.23.84.72 1.23 1.87.88 2.33.67.07-.53.28-.88.51-1.08-1.78-.21-3.64-.91-3.64-4.02 0-.89.31-1.61.82-2.18-.08-.2-.36-1.03.08-2.15 0 0 .67-.22 2.2.83A7.43 7.43 0 0 1 8 4.01c.68 0 1.36.09 2 .27 1.53-1.05 2.2-.83 2.2-.83.44 1.12.16 1.95.08 2.15.51.57.82 1.29.82 2.18 0 3.12-1.87 3.81-3.65 4.02.29.25.54.75.54 1.52 0 1.1-.01 1.98-.01 2.25 0 .21.15.47.55.39A8.1 8.1 0 0 0 16 8.18C16 3.66 12.42 0 8 0Z"/>
-        </svg>
-      </a>
-    </div>
-  </header>
+                footer {
+                    padding: 14px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Zeleste</h1>
+            <div class="header-actions">
+                <p class="meta">Game Boy Advance prototype</p>
+                <a
+                    class="github-link"
+                    href="https://github.com/braheezy/zeleste-web"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Open the GitHub repository"
+                >
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                        <path
+                            d="M8 0C3.58 0 0 3.66 0 8.18c0 3.61 2.29 6.67 5.47 7.75.4.08.55-.18.55-.39 0-.19-.01-.84-.01-1.52-2.01.38-2.53-.5-2.69-.96-.09-.24-.48-.96-.82-1.16-.28-.15-.68-.52-.01-.53.63-.01 1.08.59 1.23.84.72 1.23 1.87.88 2.33.67.07-.53.28-.88.51-1.08-1.78-.21-3.64-.91-3.64-4.02 0-.89.31-1.61.82-2.18-.08-.2-.36-1.03.08-2.15 0 0 .67-.22 2.2.83A7.43 7.43 0 0 1 8 4.01c.68 0 1.36.09 2 .27 1.53-1.05 2.2-.83 2.2-.83.44 1.12.16 1.95.08 2.15.51.57.82 1.29.82 2.18 0 3.12-1.87 3.81-3.65 4.02.29.25.54.75.54 1.52 0 1.1-.01 1.98-.01 2.25 0 .21.15.47.55.39A8.1 8.1 0 0 0 16 8.18C16 3.66 12.42 0 8 0Z"
+                        />
+                    </svg>
+                </a>
+            </div>
+        </header>
 
-  <main>
-    <div class="play-area">
-      <div id="game"></div>
+        <main>
+            <div class="play-area">
+                <div id="game"></div>
 
-      <section class="controls" aria-labelledby="controls-title">
-        <h2 id="controls-title">Controls</h2>
-        <dl class="control-list">
-          <div class="control">
-            <dt>D-pad</dt>
-            <dd>Arrow keys</dd>
-          </div>
-          <div class="control">
-            <dt>A</dt>
-            <dd>Z</dd>
-          </div>
-          <div class="control">
-            <dt>B</dt>
-            <dd>X</dd>
-          </div>
-          <div class="control">
-            <dt>L / R</dt>
-            <dd>Q or E</dd>
-          </div>
-          <div class="control">
-            <dt>Start</dt>
-            <dd>Enter</dd>
-          </div>
-        </dl>
-        <p class="controls-note">Gamepads use the standard GBA layout. Select is mapped to V in the emulator.</p>
-      </section>
-    </div>
-  </main>
+                <section class="controls" aria-labelledby="controls-title">
+                    <h2 id="controls-title">Controls</h2>
+                    <dl class="control-list">
+                        <div class="control">
+                            <dt>D-pad</dt>
+                            <dd>Arrow keys</dd>
+                        </div>
+                        <div class="control">
+                            <dt>A</dt>
+                            <dd>Z</dd>
+                        </div>
+                        <div class="control">
+                            <dt>B</dt>
+                            <dd>X</dd>
+                        </div>
+                        <div class="control">
+                            <dt>L / R</dt>
+                            <dd>Q or E</dd>
+                        </div>
+                        <div class="control">
+                            <dt>Start</dt>
+                            <dd>Enter</dd>
+                        </div>
+                    </dl>
+                    <p class="controls-note">
+                        Gamepads use the standard GBA layout. Select is mapped
+                        to V in the emulator.
+                    </p>
+                </section>
+            </div>
+        </main>
 
-  <footer>
-    <p>Keyboard controls are managed by the emulator. The ROM is served from <a href="./roms/zeleste.gba">roms/zeleste.gba</a>.</p>
-    <p class="takedown-note">If you are from EXOK Games and this site is upsetting, please reach out and I will happily take it down.</p>
-  </footer>
+        <footer>
+            <p>
+                Keyboard controls are managed by the emulator. The ROM is served
+                from <a href="./roms/zeleste.gba">roms/zeleste.gba</a>.
+            </p>
+            <p class="takedown-note">
+                If you are from EXOK Games and this site is upsetting, please
+                <a href="https://github.com/braheezy/zeleste-web/issues"
+                    >reach out</a
+                >
+                and I will happily take it down.
+            </p>
+        </footer>
 
-  <script>
-    window.EJS_player = "#game";
-    window.EJS_core = "gba";
-    window.EJS_gameUrl = "./roms/zeleste.gba?v=" + Date.now();
-    window.EJS_gameName = "Zeleste";
-    window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
-    window.EJS_startOnLoaded = false;
-    window.EJS_volume = 0.6;
-    window.EJS_Buttons = {
-      saveState: false,
-      loadState: false,
-      quickSave: false,
-      quickLoad: false,
-      cheat: false
-    };
-  </script>
-  <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
-</body>
+        <script>
+            window.EJS_player = "#game";
+            window.EJS_core = "gba";
+            window.EJS_gameUrl = "./roms/zeleste.gba?v=" + Date.now();
+            window.EJS_gameName = "Zeleste";
+            window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
+            window.EJS_startOnLoaded = false;
+            window.EJS_volume = 0.6;
+            window.EJS_Buttons = {
+                saveState: false,
+                loadState: false,
+                quickSave: false,
+                quickLoad: false,
+                cheat: false,
+            };
+        </script>
+        <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+    </body>
 </html>
