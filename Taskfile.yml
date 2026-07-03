@@ -19,8 +19,3 @@ tasks:
     desc: Build/copy the ROM into roms/zeleste.gba using deploy-local.sh
     cmds:
       - ./deploy-local.sh
-
-  netbird-ip:
-    desc: Show NetBird status so you can find this machine's NetBird IP
-    cmds:
-      - netbird status
