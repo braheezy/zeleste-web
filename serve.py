@@ -20,7 +20,10 @@ ROOT = Path(__file__).resolve().parent
 ALLOWED_FILES = {
     "/": ROOT / "index.html",
     "/index.html": ROOT / "index.html",
+    "/favicon.ico": ROOT / "favicon.ico",
     "/complete-8.png": ROOT / "complete-8.png",
+    "/assets/icons/favicon.ico": ROOT / "assets" / "icons" / "favicon.ico",
+    "/assets/icons/favicon.png": ROOT / "assets" / "icons" / "favicon.png",
     "/roms/zeleste.gba": ROOT / "roms" / "zeleste.gba",
 }
 

@@ -31,8 +31,9 @@ jobs:
       - name: Prepare static site
         run: |
           set -euo pipefail
-          mkdir -p dist/roms
-          cp index.html complete-8.png dist/
+          mkdir -p dist/assets/icons dist/roms
+          cp index.html complete-8.png favicon.ico dist/
+          cp assets/icons/favicon.ico assets/icons/favicon.png dist/assets/icons/
           cp roms/zeleste.gba dist/roms/
 
       - name: Upload Pages artifact
