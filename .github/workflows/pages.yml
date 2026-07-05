@@ -32,7 +32,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p dist/assets/icons dist/roms
-          cp index.html complete-8.png favicon.ico dist/
+          cp index.html complete-8.png dist/
           cp assets/icons/favicon.ico assets/icons/favicon.png dist/assets/icons/
           cp roms/zeleste.gba dist/roms/
 
